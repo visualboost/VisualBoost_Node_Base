@@ -7,5 +7,6 @@ db/data/*
 db/key/*
 
 # Ignore IDE files 
-backend/.idea/*
+backend/.idea
+.idea
 

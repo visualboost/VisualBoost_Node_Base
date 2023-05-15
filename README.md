@@ -1,7 +1,6 @@
-
 # Introduction
-Welcome to Appfield. This repository contains the generated Backend by Appfield.
-You can test and modify the code as you want.
+Welcome to **Visual Boost**. 
+This repository represents the base NodeJs-Project tha that is used by Visual Boost.
 
 ## Prerequisites
 
@@ -12,7 +11,7 @@ You can test and modify the code as you want.
 
 ## Project
 
-This section describes the project stucture. The root directory contains a README.md and two directories that contains
+This section describes the project structure. The root directory contains a README.md and two directories that contains
 the nodejs project and the docker file for the database..
 
 ```
@@ -24,9 +23,9 @@ root
 
 The **backend directory** is divided in two sections. A **generated** and a **custom** section.
 
-The **generated** directory will be recreated for each created version. Therefor **do not change** anything inside this directory.
+The **generated** directory will be recreated for each created version. 
+Therefor **do not change** anything inside this directory.
 
-**TODO: finish description**
 
 ```
 backend
@@ -37,7 +36,6 @@ backend
     └───generated
         |
         └───config
-        └───data
         └───db
         └───hooks
         └───openapi
@@ -128,4 +126,4 @@ To add new dependencies, just add the to the package.json.
     }
 
 ## Add Environment Files
-TODO: Describe how to add the environment file
+**TODO:** Describe how to add the environment file

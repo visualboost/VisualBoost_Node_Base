@@ -2,17 +2,11 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
-const generatedRootDir = 'generated';
-const customRootDir = 'custom';
-
-const routesDir = 'routes';
-
 const initRoutes = (app) => {
     console.log(`\n-----------------------------------\n`);
     console.log(`Starting Router-Initialisation\n`);
 
-    getRequirementsDynamically(app, `./${generatedRootDir}/${routesDir}`);
-    getRequirementsDynamically(app, `./${customRootDir}/${routesDir}`);
+    getRequirementsDynamically(app, `./${process.env.DIR_ROOT}/${process.env.DIR_ROUTES}`);
 
     console.log(`\nFinished Router-Initialisation`);
     console.log(`\n-----------------------------------\n`);

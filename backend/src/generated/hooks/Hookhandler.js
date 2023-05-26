@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 
-const generatedRootDir = 'generated';
 const customRootDir = 'custom';
 
 const eventsDir = 'hooks';
@@ -43,7 +42,7 @@ const runEvents = async (app, event) => {
 
 
     const basePath = path.join(__dirname, "..", "..");
-    const generatedDir = path.join(basePath, generatedRootDir, eventsDir, event);
+    const generatedDir = path.join(basePath, process.env.DIR_ROOT, eventsDir, event);
     const customDir = path.join(basePath, customRootDir, eventsDir, event);
 
     await runFunctionsInDirectory(app, generatedDir, event)

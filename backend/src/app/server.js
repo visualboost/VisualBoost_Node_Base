@@ -28,12 +28,6 @@ const getRequirementsDynamically = (app, relativePath) => {
     });
 };
 
-
-const checkIfFileExists = (relativePath) => {
-    const directory = path.join(__dirname, relativePath);
-    return fs.existsSync(directory);
-}
-
 const initServer = () => {
     const app = express();
     app.use(express.json({

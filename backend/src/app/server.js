@@ -6,7 +6,7 @@ const initRoutes = (app) => {
     console.log(`\n-----------------------------------\n`);
     console.log(`Starting Router-Initialisation\n`);
 
-    getRequirementsDynamically(app, `./${process.env.DIR_ROOT}/${process.env.DIR_ROUTES}`);
+    getRequirementsDynamically(app, `./../${process.env.DIR_ROUTES}`);
 
     console.log(`\nFinished Router-Initialisation`);
     console.log(`\n-----------------------------------\n`);

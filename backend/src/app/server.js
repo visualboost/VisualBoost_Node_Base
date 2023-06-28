@@ -4,11 +4,12 @@ const fs = require('fs');
 
 const initRoutes = (app) => {
     console.log(`\n-----------------------------------\n`);
-    console.log(`Starting Router-Initialisation\n`);
+    console.log(`Start initialize routes\n`);
 
-    getRequirementsDynamically(app, `./../${process.env.DIR_ROUTES}`);
+    getRequirementsDynamically(app, `./../${process.env.DIR_GEN_ROUTES}`);
+    getRequirementsDynamically(app, `./../${process.env.DIR_EXT_ROUTES}`);
 
-    console.log(`\nFinished Router-Initialisation`);
+    console.log(`\nFinished initialize routes`);
     console.log(`\n-----------------------------------\n`);
 }
 

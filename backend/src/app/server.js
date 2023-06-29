@@ -1,19 +1,20 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const {apiKeyMiddleware} = require("./middleware/auth");
 
 const initRoutes = (app) => {
     console.log(`\n-----------------------------------\n`);
     console.log(`Start initialize routes\n`);
 
-    getRequirementsDynamically(app, `./../${process.env.DIR_GEN_ROUTES}`);
-    getRequirementsDynamically(app, `./../${process.env.DIR_EXT_ROUTES}`);
+    getRoutesDynamically(app, `./../${process.env.DIR_GEN_ROUTES}`);
+    getRoutesDynamically(app, `./../${process.env.DIR_EXT_ROUTES}`);
 
     console.log(`\nFinished initialize routes`);
     console.log(`\n-----------------------------------\n`);
 }
 
-const getRequirementsDynamically = (app, relativePath) => {
+const getRoutesDynamically = (app, relativePath) => {
     const directory = path.join(__dirname, relativePath);
     if (fs.existsSync(directory) === false) return;
 
@@ -24,13 +25,16 @@ const getRequirementsDynamically = (app, relativePath) => {
 
             console.log(`Add router ${file}`);
         }else if(fs.lstatSync(directory + "/" + file).isDirectory() === true){
-            getRequirementsDynamically(app, relativePath + "/" + file)
+            getRoutesDynamically(app, relativePath + "/" + file)
         }
     });
 };
 
 const initServer = () => {
     const app = express();
+
+    apiKeyMiddleware(app);
+
     app.use(express.json({
         limit: '10mb'
     }));

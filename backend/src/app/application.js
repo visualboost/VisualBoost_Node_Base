@@ -1,4 +1,4 @@
-require('../config/config')();
+require('./config/config')();
 
 const app = require('./server');
 const http = require('http');

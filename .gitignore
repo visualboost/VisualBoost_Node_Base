@@ -1,12 +1,24 @@
-# Ignore installed dependencies
+### Ignore installed dependencies
 backend/node_modules
 backend/package-lock.json
 
-# Ignore database files
+
+### Ignore environments
+
+# environment for NodeJS
+backend/configuration/.env
+# environment for mongo
+db/.env
+# environemnt for http files
+*.env.json
+
+
+### Ignore database files
 db/data/*
 db/key/*
 
-# Ignore IDE files 
+
+### Ignore IDE files
 backend/.idea
 .idea
 

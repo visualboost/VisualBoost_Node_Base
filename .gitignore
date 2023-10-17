@@ -2,21 +2,14 @@
 backend/node_modules
 backend/package-lock.json
 
-
 ### Ignore environments
-
-# environment for NodeJS
-backend/configuration/.env
-# environment for mongo
+backend/.env
 db/.env
-# environemnt for http files
 *.env.json
-
 
 ### Ignore database files
 db/data/*
 db/key/*
-
 
 ### Ignore IDE files
 backend/.idea

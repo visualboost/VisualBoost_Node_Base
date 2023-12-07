@@ -1,4 +1,4 @@
-module.exports.apiKeyMiddleware = (app) => {
+const apiKeyMiddleware = (app) => {
     app.use((req, res, next) => {
         const apiKey = req.get("x-api-key");
         if (apiKey !== process.env.API_KEY) {
@@ -8,3 +8,5 @@ module.exports.apiKeyMiddleware = (app) => {
         next();
     })
 };
+
+module.exports = apiKeyMiddleware;

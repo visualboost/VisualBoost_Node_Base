@@ -47,7 +47,7 @@ const initMiddlewares = (app, relativePath = './middleware') => {
     fs.readdirSync(directory).forEach(file => {
         if (path.extname(file) === '.js') {
             const middleware = require(`${relativePath}/${file}`);
-            app.use('/', middleware);
+            app.use(middleware);
 
             console.log(`Add middleware ${file}`);
         } else if (fs.lstatSync(directory + "/" + file).isDirectory() === true) {

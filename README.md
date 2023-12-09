@@ -150,11 +150,62 @@ Your project contains a directory where you can create your custom routes.
 By default it's ``/backend/routes/extension``.
 The router files added to this directory will automatically added to express during application start.
 
+#### Supported annotations:
+
+| Type            | Description                                                               | Example                          |
+|:----------------|---------------------------------------------------------------------------|:---------------------------------|
+| **@name:**      | Define the function name                                                  | ```@name: thisIsMyFunction```    |
+| **@body:**      | Define the body of the function. See section **Supported types**.         | ``@body: { my_string: string }`` |
+| **@return:**    | Define the return value of the function. See section **Supported types**. | ``@return: { my_int: int }``     |
+
+#### Supported types
+
+| Type         | Example                                      |
+|:-------------|:---------------------------------------------|
+| **String**   | ```@body/@return: string```                  |
+| **Boolean**  | ``@body/@return: boolean``                           |
+| **Int**      | ``@body/@return: int``                               |
+| **Float**    | ``@body/@return: float``                             |
+| **Date**     | ``@body/@return: date``                              |
+| **Location** | ``@body/@return: location``                          |
+| **File**     | ``@body/@return: { type: file, volume: my_volume }`` |
+| **Enum**     | ``@body/@return: EnumName(VALUE1, VALUE2)``          |
+| **Object**   | ``@body/@return: { "my_string": string }``           |
+| **Array**    | ``@body/@return: [string]``                          |
+
+### Example:
+
+```javascript
+/**
+ * This is the description section. You can describe yor function here.
+ *
+ * @name: your_function_name
+ *
+ * @body: string
+ * @return: [{
+ *     my_string: String,
+ *     my_bool: boolean,
+ *     my_file: file,
+ *     my_dates: [date],
+ *     my_nested_object: {
+ *          my_int_array: [int]  
+ *     }
+ * }]
+ **/
+router.put("/my_route>", async (req, res, next) => {
+    /** cour code **/
+});
+
+```
+
+
+
 #### Custom functions:
 
 You can add additionally files inside the project wherever you want (expect the generation directories).
 Please keep in mind, that the generation directories for routes and 
 database models (default: ``/routes/generated``, ``/db/generated``) will be regenerated during commit.
+
 
 #### Dependencies:
 

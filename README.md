@@ -219,4 +219,47 @@ Feel free to add new dependencies to the package.json file:
 }
 ```
 
+#### .vbignore 
+
+Use the file `.vbignore` if you want to prevent Visualboost from changing files during Build-Process.
+
+<u>Example:</u>
+
+You do not want that your backend can received plain text bodies. 
+Do achieve your goal you might change the `initServer` function in the `server.js` file.
+<br/>
+<br/>
+
+```javascript
+const initServer = () => {
+    const app = express();
+
+    //load middlewares
+    initMiddlewares(app);
+
+    //set body parser (allow text/plain and application/json)
+    //app.use(express.text({limit: '10mb'})); <-- delete this line
+    app.use(express.json({limit: '10mb'}));
+
+    app.use(express.urlencoded({extended: false}));
+
+    //load routes (generated + custom)
+    initRoutes(app);
+
+    return app;
+}
+```
+<br/>
+
+VisualBoost would normally override the server.js file and your changes would be gone.
+To avoid that, you can create a file in the project directory `.vbignore`.
+Equal to `.gitignore` this file contains all file paths and directory paths that should be ignored:
+
+
+| Ignore            | Example                                      |
+|:------------------|:---------------------------------------------|
+| **A single file** | ```backend/src/index.js```                  |
+| **A directory**   | ``backend/src/app``                           |
+
+_Note: that the paths need to be relative to the `.vbignore` file._
 

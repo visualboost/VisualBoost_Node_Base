@@ -27,7 +27,7 @@ root
 #### backend:
 
 The backend directory should contain all your database models and express routes for your application.
-Furthermore it contains the environment variables that are necessary to run your application.
+Furthermore, it contains the environment variables that are necessary to run your application.
 
 ```
 backend
@@ -61,57 +61,41 @@ Reproduce the following steps for each environment file:
 ### Let's start the database
 
 Before your application can run properly you need to start the mongodb container.
-To run the mongodb instance as a replicaset, you need to create a key file first. You can do this **step by step** or **
-all at once**.
+The mongodb instance should run as a replicaset to allow transactions. 
+Therefore, you need to create a key file first.
 
-#### Step by step:
+#### Create key directory:
 
 --- 
-Create a new key file. This file is used by mongodb to transfer data between the replica sets securely</br>
-(**This step is only necessary if you did not already created a key file**):
 
-Create directory ./db/key
+Create a file ``mongo_replica_key`` inside the directory ``./db/key``:
 
+**Linux:**
 ```shell
 mkdir -p db/key
+touch mongo_replica_key
 ```
 
-Create a new key file for mongodb
-
+**Windows:**
 ```shell
-openssl rand -base64 756 > ./db/key/mongo_replica_key
+mkdir -f .\db\key
+echo "" > .\db\key\mongo_replica_key
 ```
 
-Set permission - only owner is allowed to read the key file
-
-```shell
-chmod 400 ./db/key/mongo_replica_key
-```
-
-Set keyfile owner so docker can read it.
-
-```shell
-sudo chown 999 ./db/key/mongo_replica_key
-```
-
-#### All at once:
-
-If you are used to that, just run the following command to create a key file:
-
-```shell
-mkdir -p db/key &&
-cd db/key &&
-openssl rand -base64 756 > mongo_replica_key &&
-chmod 400 mongo_replica_key &&
-sudo chown 999 mongo_replica_key
-```
+You can also create this file manually.
+After you created the file, you can insert your replica key.
 
 #### Now start the database:
 
-Navigate to the directory **db** and start your database:
+**Linux:**
 
 ```shell
-cd db && docker-compose up
+docker-compose -f ./db/docker-compose.yml up
+```
+
+**Windows:**
+```shell
+docker-compose -f .\db\docker-compose.yml up
 ```
 
 Congratulations! You are two steps away from running your application.
@@ -120,31 +104,50 @@ Congratulations! You are two steps away from running your application.
 
 Move to the directory **backend** and install all necessary dependencies:
 
+**Linux:**
+
 ```shell
 cd backend && npm install
+```
+
+**Windows:**
+```shell
+cd backend
+npm install
 ```
 
 ## Start the application
 
 Start your application:
 
+**Linux:**
 ```shell
 cd backend && npm run start
 ```
 
+**Windows:**
+```shell
+cd backend
+npm run start
+```
+
 or run your application in **development mode**:
 
+**Linux:**
 ```shell
 cd backend && npm run dev
+```
+
+**Windows:**
+```shell
+cd backend
+npm run dev
 ```
 
 This means that it'll be automatically restarted when you modify your project.
 
 ## Extensions
 
-### Custom functionality
-
-#### Extend routes
 
 Your project contains a directory where you can create your custom routes.
 By default it's ``/backend/routes/extension``.
@@ -197,15 +200,6 @@ router.put("/my_route>", async (req, res, next) => {
 });
 
 ```
-
-
-
-#### Custom functions:
-
-You can add additionally files inside the project wherever you want (expect the generation directories).
-Please keep in mind, that the generation directories for routes and 
-database models (default: ``/routes/generated``, ``/db/generated``) will be regenerated during commit.
-
 
 #### Dependencies:
 

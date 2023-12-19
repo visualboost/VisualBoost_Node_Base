@@ -31,6 +31,8 @@ services:
       - "./home/mongodb/.dbshell:/home/mongodb/.dbshell"
       - "./data:/data/db"
       - "./key/mongo_replica_key:/key/mongo_replica_key"
+      - "./.scripts/init_replica_key.sh:/scripts/init_replica_key.sh"
+    entrypoint: [ "bash", "/scripts/init_replica_key.sh" ]
     command: ["--bind_ip_all", "--port", "${MONGO_PORT}", "--auth", "--replSet", "replica_set", "--keyFile", "/key/mongo_replica_key"]
     networks:
       - dev_network

@@ -79,21 +79,21 @@ touch mongo_replica_key
 **Windows:**
 ```shell
 mkdir -f .\db\key
-echo "" > .\db\key\mongo_replica_key
+echo "your_secret_replica_key" > .\db\key\mongo_replica_key
 ```
 
 You can also create this file manually.
 After you created the file, you can insert your replica key.
 
+#### Set line separator (Windows only):
+
+If you run the application on Windows please make sure that the line separator is set to ``LF (Unix and macOS)`` for the following files:
+1. [init_replica_key.sh](./db/.scripts/init_replica_key.sh)
+2. [init_replicaset.sh](./db/.srcipts/init_replicaset.sh)
+
+
 #### Now start the database:
 
-**Linux:**
-
-```shell
-docker-compose -f ./db/docker-compose.yml up
-```
-
-**Windows:**
 ```shell
 docker-compose -f .\db\docker-compose.yml up
 ```
@@ -110,38 +110,19 @@ Move to the directory **backend** and install all necessary dependencies:
 cd backend && npm install
 ```
 
-**Windows:**
-```shell
-cd backend
-npm install
-```
 
 ## Start the application
 
 Start your application:
 
-**Linux:**
 ```shell
 cd backend && npm run start
 ```
 
-**Windows:**
-```shell
-cd backend
-npm run start
-```
-
 or run your application in **development mode**:
 
-**Linux:**
 ```shell
 cd backend && npm run dev
-```
-
-**Windows:**
-```shell
-cd backend
-npm run dev
 ```
 
 This means that it'll be automatically restarted when you modify your project.

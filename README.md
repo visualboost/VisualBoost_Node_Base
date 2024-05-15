@@ -47,16 +47,16 @@ The mongodb service will run as a single replicaset to allow the usage of transa
 
 Before you can run your application you have to add the environment variables to the following files:
 
-1. The **environment file of your NodeJS** application: backend/configuration/.env
-2. The **environment file for your mongodb** service: db/.env
-3. The **environment file for your http file**s: http-client.env.json (the filename may change due to your IDE)
+1. The **environment file of your NodeJS** application: `./backend/.env`
+2. The **environment file for your mongodb** service: `./db/.env`
+3. The **environment file for your http file**s: `./backend/http/http-client.env.json` (the filename may change due to your IDE)
 
-Reproduce the following steps for each environment file:
+Add the environment variables to your `*.env` (or `*.env.json`) files. To do this, reproduce the following steps for each environment file:
 
 1. In your VisualBoost project, navigate to Settings.
 2. Click the tab Configuration.
 3. Click the eye icon on the top right corner to display the environment files.
-4. Copy the environment variables into your project.
+4. Copy the environment variables into the file.
 
 ### Let's start the database
 
@@ -89,7 +89,7 @@ After you created the file, you can insert your replica key.
 
 If you run the application on Windows please make sure that the line separator is set to ``LF (Unix and macOS)`` for the following files:
 1. [init_replica_key.sh](./db/.scripts/init_replica_key.sh)
-2. [init_replicaset.sh](./db/.srcipts/init_replicaset.sh)
+2. [init_replicaset.sh](./db/.scripts/init_replicaset.sh)
 
 
 #### Now start the database:

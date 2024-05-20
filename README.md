@@ -104,8 +104,6 @@ Congratulations! You are two steps away from running your application.
 
 Move to the directory **backend** and install all necessary dependencies:
 
-**Linux:**
-
 ```shell
 cd backend && npm install
 ```

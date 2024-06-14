@@ -15,7 +15,7 @@ This repository represents NodeJS express application that does not contain any 
 
 ### Project
 
-The project is splited into two directories: **backend** and **db**. The **backend** directory contains the sourcecode
+The project is splitted into two directories: **backend** and **db**. The **backend** directory contains the sourcecode
 of your application. The **db** directory contains all necessary data to run your mongodb application locally.
 
 ```
@@ -79,11 +79,11 @@ touch mongo_replica_key
 **Windows:**
 ```shell
 mkdir -f .\db\key
-echo "your_secret_replica_key" > .\db\key\mongo_replica_key
+echo "" > .\db\key\mongo_replica_key
 ```
 
 You can also create this file manually.
-After you created the file, you can insert your replica key.
+After you created the file, your replica key. The replica key must be a Base64 string between 6 and 1024 characters.
 
 #### Set line separator (Windows only):
 

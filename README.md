@@ -49,7 +49,7 @@ Before you can run your application you have to add the environment variables to
 
 1. The **environment file of your NodeJS** application: `./backend/.env`
 2. The **environment file for your mongodb** service: `./db/.env`
-3. The **environment file for your http file**s: `./backend/http/http-client.env.json` (the filename may change due to your IDE)
+3. The **environment file for your http file**s: `./backend/http-client.env.json` (the filename may change due to your IDE)
 
 Add the environment variables to your `*.env` (or `*.env.json`) files. To do this, reproduce the following steps for each environment file:
 

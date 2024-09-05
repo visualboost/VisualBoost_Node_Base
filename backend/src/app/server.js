@@ -62,6 +62,9 @@ const initMiddlewares = (app, relativePath = './middleware') => {
 const initServer = () => {
     const app = express();
 
+    //add cors
+    app.use(cors());
+
     //load middlewares
     initMiddlewares(app);
 
